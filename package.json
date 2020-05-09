@@ -1,0 +1,53 @@
+{
+    "name": "typescript-node-with-linting",
+    "version": "1.0.0",
+    "description": "Template repository for a TypeScript Node project with linting.",
+    "main": "dist/app.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "start": "node dist/app.js",
+        "start:watch": "ts-node-dev --respawn --transpileOnly src/app.ts",
+        "build": "tsc --sourceMap false",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cr0wst/typescript-node-with-linting.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/cr0wst/typescript-node-with-linting/issues"
+    },
+    "homepage": "https://github.com/cr0wst/typescript-node-with-linting#readme",
+    "devDependencies": {
+        "@types/node": "^13.13.5",
+        "@typescript-eslint/eslint-plugin": "^2.31.0",
+        "@typescript-eslint/parser": "^2.31.0",
+        "eslint": "^7.0.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.2",
+        "prettier": "^2.0.5",
+        "ts-node-dev": "^1.0.0-pre.44",
+        "typescript": "^3.8.3"
+    },
+    "dependencies": {},
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.+(ts|tsx)": [
+            "eslint --fix"
+        ],
+        "*.+(json|css|md)": [
+            "prettier --write"
+        ]
+    }
+}

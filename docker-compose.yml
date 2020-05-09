@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  app:
+    image: your-image-name
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - npm_cache:/root/.npm
+    ports: 
+      - "3000:3000"
+    command: "npm run start:watch"
+volumes: 
+  npm_cache:
+    external: true
+
